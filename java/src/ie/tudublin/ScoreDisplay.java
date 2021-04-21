@@ -37,6 +37,14 @@ public class ScoreDisplay extends PApplet
 			println(n);
 		}
 	}
+
+	public void drawStaveLines() {
+		for(int i = 0; i < 5; i++) {
+			stroke(0);
+			strokeWeight(3);
+			line(100, 200 + i * 25, width - 100, 200 + i * 25);
+		}
+	}
 	
 	public void settings()
 	{
@@ -52,10 +60,12 @@ public class ScoreDisplay extends PApplet
 	public void draw()
 	{
 		background(255);
+		drawStaveLines();
 		
 	}
 
 	void drawNotes()
 	{
+		background(255);
 	}
 }
