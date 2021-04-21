@@ -31,20 +31,22 @@ public class ScoreDisplay extends PApplet
 			}
 		}
 	}
+
+	public void printScores() {
+		for(Note n:notes) {
+			println(n);
+		}
+	}
 	
 	public void settings()
 	{
 		size(1000, 500);
-
-		// How to convert a character to a number
-		char c = '7'; // c holds the character 7 (55)
-		int i = c - '0'; // i holds the number 7 (55 - 48) 
-		println(i);
 	}
 
 	public void setup() 
 	{
 		loadScore(); //initialize notes array
+		printScores();
 	}
 
 	public void draw()

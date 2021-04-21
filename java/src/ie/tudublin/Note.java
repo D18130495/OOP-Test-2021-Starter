@@ -3,10 +3,16 @@ package ie.tudublin;
 public class Note {
     private char note;
     private int duration;
+    private String type;
 
     public Note(char note, int duration) {
         this.note = note;
         this.duration = duration;
+        if(duration == 1) {
+            type = "Quaver";
+        } else {
+            type = "Crotchet";
+        }
     }
 
     public char getNote() {
@@ -27,6 +33,6 @@ public class Note {
 
     @Override
     public String toString() {
-        return "Note [note=" + note + ", duration=" + duration + "]";
+        return "Note [note = " + note + " duration = " + duration + " type = " + type + "]";
     }
 }
