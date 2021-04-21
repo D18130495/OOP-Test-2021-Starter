@@ -11,17 +11,19 @@ public class ScoreDisplay extends PApplet
 	//String score = "D2E2F2G2A2B2c2d2";
 	String score = "DEF2F2F2EFA2A2B2AFD2E2D2D2D2";
 
-	ArrayList<Note> notes = new ArrayList<Note>();
+	ArrayList<Note> notes = new ArrayList<Note>(); //new a Note arraylist to store the note
 
 	public void loadScore() {
 		for(int i = 0; i < score.length() - 1; i++)
 		{
+			//convert character to the number
 			char a = score.charAt(i);
 			int m = a - '0';
 
 			char b = score.charAt(i + 1);
 			int n = b - '0';
-
+			
+			//check what type of the note it is and add to the arraylist
 			if(m != 2 && n == 2) {
 				Note note = new Note(a, 2);
 				notes.add(note);
@@ -48,21 +50,26 @@ public class ScoreDisplay extends PApplet
 
 	public void drawNotes()
 	{
-		float gap = (width - 260) / notes.size();// gap between each notes
+		float gap = (width - 260) / notes.size(); // gap between each notes
 
 		for(int i = 0; i < notes.size(); i++) {
+
 			Note n = notes.get(i);
+			
 			if(n.getNote() == 'D') {
 				fill(0);
 				stroke(0);
+				//hightlight the notes
 				if(130 + i * gap - 10 <= mouseX && mouseX <= 130 + i * gap + 10) {
 					fill(255, 0, 0);
 					stroke(255, 0, 0);
 				}
+				//text above the note
 				text(n.getNote(), 130 + i * gap, 100);
 				textSize(25);
 				line(130 + i * gap + 10, height / 2 + 50, 130 + i * gap + 10, height / 2);
 				circle(130 + i * gap, height / 2 + 50, 20);
+				//check what types of note
 				if(n.getDuration() == 1) {
 					line(130 + i * gap + 10, height / 2, 130 + i * gap + 25, height / 2 + 15);
 				}
@@ -183,7 +190,7 @@ public class ScoreDisplay extends PApplet
 	public void draw()
 	{
 		background(255);
-		drawStaveLines();
-		drawNotes();
+		drawStaveLines(); //draw the 5 lines
+		drawNotes(); //draw notes
 	}
 }
