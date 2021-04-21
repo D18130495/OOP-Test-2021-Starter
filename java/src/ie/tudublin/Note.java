@@ -27,6 +27,6 @@ public class Note {
 
     @Override
     public String toString() {
-        return "Note [duration=" + duration + ", note=" + note + "]";
+        return "Note [note=" + note + ", duration=" + duration + "]";
     }
 }
